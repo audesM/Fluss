@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Propositions de Freelances - Fluss</title>
+  <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="h3 mb-4 text-gray-800">
+      <i class="fas fa-users"></i> Freelances correspondant à votre projet
+    </h1>
+
+    <div id="freelancersList">
+      <!-- Les freelances apparaîtront ici -->
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const description = urlParams.get("description");
+    const skills = urlParams.get("skills");
+    const budget = parseFloat(urlParams.get("budget"));
+
+    // Exemple : quelques freelances fictifs
+    const freelancers = [
+      { name: "Sara K.", skills: "Marketing Digital, Rédaction", rate: 4000 },
+      { name: "Youssef T.", skills: "Data Analysis, SEO", rate: 5000 },
+      { name: "Karim H.", skills: "Développement Web, UX/UI", rate: 6000 },
+    ];
+
+    const filtered = freelancers.filter(f => 
+      f.skills.toLowerCase().includes(skills.toLowerCase()) &&
+      f.rate <= budget
+    );
+
+    const container = document.getElementById("freelancersList");
+
+    if (filtered.length === 0) {
+      container.innerHTML = `<div class="alert alert-warning">Aucun freelance ne correspond à vos critères pour le moment.</div>`;
+    } else {
+      filtered.forEach(f => {
+        container.innerHTML += `
+          <div class="card mb-3 shadow">
+            <div class="card-body">
+              <h5 class="card-title">${f.name}</h5>
+              <p class="card-text">Compétences : ${f.skills}</p>
+              <p class="card-text">Tarif proposé : ${f.rate} €</p>
+              <a href="messagerie_match.html?user=${encodeURIComponent(f.name)}" class="btn btn-success">Proposer une mission</a>
+            </div>
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>
