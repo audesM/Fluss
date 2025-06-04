@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - iLanding Bootstrap Template</title>
+  <title>Accueil</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -26,6 +26,31 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Google Translate -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+.btn-translate {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.btn-translate:hover {
+  background: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  border-radius: 3px;
+}
+</style>
 
   <!-- =======================================================
   * Template Name: iLanding
@@ -40,12 +65,12 @@
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
+  
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/favicon.png" alt=""> 
         <h1 class="sitename">Fluss</h1>
       </a>
+  
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Accueil</a></li>
@@ -53,14 +78,16 @@
           <li><a href="#features">Caractéristiques</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#pricing">Tarifs</a></li>
-         
           <li><a href="#contact">Contact</a></li>
+          <li><a href="liste de blog.html">Blog</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+        
       </nav>
-      
+  
       <a class="btn-getstarted" href="connexion.html">Commencer</a>
-      
+  
     </div>
   </header>
 
@@ -769,23 +796,23 @@
 
     </section><!-- /Services Section -->
 
-    <!-- Pricing Section -->
+    <!-- Pricing Section --
     <section id="pricing" class="pricing section light-background">
 
       <!-- Section Title -->
-      <section id="pricing" class="pricing section light-background">
+      <section id="pricing" class="pricing section light-background"> -->
 
-        <!-- Titre de la section -->
+        <!-- Titre de la section -
         <div class="container section-title" data-aos="fade-up">
           <h2>Nos Tarifs</h2>
           <p>Découvrez comment Fluss vous aide à développer votre activité tout en garantissant une expérience fluide et optimisée.</p>
-        </div><!-- Fin du titre de la section -->
+        </div><!-- Fin du titre de la section --><!-- 
       
         <div class="container" data-aos="fade-up" data-aos-delay="100">
       
           <div class="row g-4 justify-content-center">
       
-            <!-- Commission sur les transactions -->
+            <!-- Commission sur les transactions --><!-- 
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
               <div class="pricing-card">
                 <h3>Commission Standard</h3>
@@ -800,14 +827,14 @@
                 <ul class="features-list">
                   <li><i class="bi bi-check-circle-fill"></i> Sécurisation des paiements</li>
                   <li><i class="bi bi-check-circle-fill"></i> Garantie de satisfaction</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Protection contre les fraudes</li>
+                <!--   <li><i class="bi bi-check-circle-fill"></i> Protection contre les fraudes</li>  --><!-- 
                 </ul>
       
               </div>
-            </div>
+            </div> -->
       
             <!-- Abonnement Premium Freelances -->
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <!-- <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
               <div class="pricing-card">
                 
                 <h3>Premium Freelance</h3>
@@ -833,7 +860,7 @@
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
-            </div>
+            </div> -->
       
             <!-- Abonnement Premium Entrepreneurs 
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
@@ -1056,6 +1083,42 @@
     </section><!-- /Contact Section -->
 
   </main>
+  <script>
+   function toggleLanguage() {
+  if(document.documentElement.lang === 'fr') {
+    // Traduction vers l'arabe
+    var googleTranslateScript = document.createElement('script');
+    googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(googleTranslateScript);
+    
+    document.documentElement.lang = 'ar';
+    localStorage.setItem('preferredLanguage', 'ar');
+  } else {
+    // Retour au français
+    if(typeof window.google !== 'undefined') {
+      new google.translate.TranslateElement({pageLanguage: 'ar', includedLanguages: 'fr,ar'}, 'google_translate_element');
+      setTimeout(() => {
+        var select = document.querySelector(".goog-te-combo");
+        select.value = 'fr';
+        select.dispatchEvent(new Event('change'));
+      }, 500);
+    }
+    document.documentElement.lang = 'fr';
+    localStorage.setItem('preferredLanguage', 'fr');
+  }
+}
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'fr',
+    includedLanguages: 'ar,fr',
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+  }, 'google_translate_element');
+  
+  // Masquer les éléments Google
+  document.querySelector('.goog-te-gadget').style.display = 'none';
+}
+    </script>
 
   
   <footer id="footer" class="footer">
@@ -1152,6 +1215,242 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+ <!--Start of Tawk.to Script-->
+ <!-- Flussy Assistant -->
+<div id="flussy-container">
+  <div id="flussy-header">💬 Flussy - Votre assistant virtuel</div>
+  <div id="flussy-messages"></div>
+  <div id="flussy-input-area">
+    <input type="text" id="flussy-input" placeholder="Écrivez votre réponse ici...">
+  </div>
+</div>
+<button id="flussy-toggle" title="Besoin d'aide ?">💬</button>
+
+<style>
+#flussy-container {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  max-height: 500px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  z-index: 9999;
+}
+
+#flussy-header {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#flussy-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flussy-message {
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 80%;
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+}
+
+.flussy-message.bot {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+
+.flussy-message.user {
+  background: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+#flussy-input-area {
+  border-top: 1px solid #ccc;
+  padding: 8px;
+}
+
+#flussy-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.flussy-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.flussy-option-btn {
+  flex: 1 1 100%;
+  background: #007bff;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.flussy-option-btn:hover {
+  background: #0056b3;
+}
+
+#flussy-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  z-index: 9999;
+}
+
+#flussy-toggle:hover {
+  background: #0056b3;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+</style>
+
+<script>
+const flussyContainer = document.getElementById('flussy-container');
+const flussyMessages = document.getElementById('flussy-messages');
+const flussyInput = document.getElementById('flussy-input');
+const flussyToggle = document.getElementById('flussy-toggle');
+
+let userName = '';
+let currentStep = 0;
+
+flussyToggle.addEventListener('click', () => {
+  flussyContainer.style.display = flussyContainer.style.display === 'none' ? 'flex' : 'none';
+  if (currentStep === 0) {
+    setTimeout(() => {
+      addBotMessage("👋 Bonjour, je suis Flussy, votre assistant virtuel sur Fluss. 😊");
+      addBotMessage("Avant de commencer, puis-je connaître votre prénom ?");
+      currentStep = 1;
+    }, 500);
+  }
+});
+
+flussyInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && flussyInput.value.trim() !== '') {
+    const userInput = flussyInput.value.trim();
+    addUserMessage(userInput);
+    flussyInput.value = '';
+
+    if (currentStep === 1) {
+      userName = userInput;
+      addBotMessage(`Enchanté ${userName} ! 😊`);
+      addBotMessage("🌍 Fluss est la première plateforme marocaine qui connecte freelances et entrepreneurs débutants grâce à un moteur de matching intelligent et une IA d’aide au choix.");
+      addBotMessage("Voici ce que je peux faire pour vous aujourd'hui 👇");
+      showOptions();
+      currentStep = 2;
+    }
+  }
+});
+
+function addBotMessage(text) {
+  const msg = document.createElement('div');
+  msg.className = 'flussy-message bot';
+  msg.textContent = text;
+  flussyMessages.appendChild(msg);
+  msg.scrollIntoView({ behavior: 'smooth' });
+}
+
+function addUserMessage(text) {
+  const msg = document.createElement('div');
+  msg.className = 'flussy-message user';
+  msg.textContent = text;
+  flussyMessages.appendChild(msg);
+  msg.scrollIntoView({ behavior: 'smooth' });
+}
+
+function showOptions() {
+  const optionsDiv = document.createElement('div');
+  optionsDiv.className = 'flussy-options';
+
+  const options = [
+    { label: '🔎 Découvrir la vision de Fluss', action: handleVision },
+    { label: '💼 Explorer les services', action: handleServices },
+    { label: '📝 M’inscrire', action: handleRegistration },
+    { label: '📊 Accéder au tableau de bord', action: handleDashboard },
+    { label: '❌ Quitter le chat', action: handleQuit }
+  ];
+
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'flussy-option-btn';
+    btn.textContent = opt.label;
+    btn.addEventListener('click', opt.action);
+    optionsDiv.appendChild(btn);
+  });
+
+  flussyMessages.appendChild(optionsDiv);
+  optionsDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+function handleVision() {
+  addBotMessage("🌍 Fluss est la première plateforme au Maroc dédiée à la mise en relation des freelances et entrepreneurs débutants. Elle facilite les collaborations grâce à un algorithme de matching intelligent et une IA qui vous accompagne.");
+}
+
+function handleServices() {
+  addBotMessage("🛠️ Nos services incluent : matching de profils, chat IA, tableau de bord personnalisé, blog et ressources utiles.");
+}
+
+function handleRegistration() {
+  addBotMessage("📝 Pour vous inscrire, cliquez sur l'un des boutons 'Je suis un freelance' ou 'Je cherche un freelance' de la page d'accueil.");
+  addBotMessage("Ensuite, vous pourrez vous connecter en cliquant sur le bouton 'Commencer' en haut à droite de la page.");
+}
+
+function handleDashboard() {
+  addBotMessage("📊 Avant d'accéder à votre tableau de bord, vous devez être inscrit sur Fluss.");
+  addBotMessage("👉 Pour vous inscrire, cliquez sur 'Je suis un freelance' ou 'Je cherche un freelance' sur la page d'accueil.");
+  addBotMessage("Une fois inscrit, cliquez sur 'Commencer' pour vous connecter et accéder à votre tableau de bord personnalisé.");
+}
+
+function handleQuit() {
+  addBotMessage(`Merci ${userName || ''} d'avoir utilisé Flussy. À très bientôt sur Fluss ! 😊`);
+  setTimeout(() => {
+    flussyContainer.style.display = 'none';
+    flussyMessages.innerHTML = '';
+    currentStep = 0;
+  }, 3000);
+}
+</script>
+
+<!--End of Tawk.to Script-->
 
 </body>
 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Articles - Fluss</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .article-card {
+      transition: transform 0.3s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+    }
+    #hero {
+      background: #f5f7fa;
+      padding: 100px 0 60px;
+      text-align: center;
+    }
+    #articles {
+      padding: 60px 0;
+    }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+   <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">Fluss</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="index.html#about">À propos</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#about">Commencer</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <h2 class="mb-3">Nos derniers articles</h2>
+      <p class="text-muted">Découvrez des contenus utiles pour les freelances et entrepreneurs marocains.</p>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section id="articles">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card article-card h-100">
+            <img src="assets/img/freelance-maroc.jpeg" class="card-img-top" alt="Article 1">
+            <div class="card-body">
+              <h5 class="card-title">Comment trouver un freelance au Maroc</h5>
+              <p class="card-text">Découvrez nos conseils pour dénicher un freelance de confiance au Maroc.</p>
+              <a href="blog.html" class="btn btn-primary">Lire plus</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card article-card h-100">
+            <img src="assets/img/entrep.jpeg" class="card-img-top" alt="Article 2">
+            <div class="card-body">
+              <h5 class="card-title">Lancer son projet</h5>
+              <p class="card-text">Étapes clés pour démarrer un projet entrepreneurial au Maroc avec succès.</p>
+              <a href="#" class="btn btn-primary">Lire plus</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card article-card h-100">
+            <img src="assets/img/finance.jpeg" class="card-img-top" alt="Article 3">
+            <div class="card-body">
+              <h5 class="card-title">Gérer ses finances</h5>
+              <p class="card-text">Apprenez à bien gérer votre budget en tant que freelance débutant.</p>
+              <a href="#" class="btn btn-primary">Lire plus</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ajoutez d'autres articles ici -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Fluss</span></a>
+          <div class="footer-contact pt-3">
+            <p><strong>📍 Adresse :</strong> Casablanca, Maroc</p>
+            <p><strong>📞 Téléphone :</strong> <span>+212 778753439</span></p>
+            <p><strong>📧 Email :</strong> <span>support@fluss.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Liens utiles</h4>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Nos services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Mentions légales</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Pour les freelances</h4>
+          <ul>
+            <li><a href="#">Créer un profil</a></li>
+            <li><a href="#">Répondre à un projet</a></li>
+            <li><a href="#">Optimiser ses services</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Pour les clients</h4>
+          <ul>
+            <li><a href="#">Publier un projet</a></li>
+            <li><a href="#">Trouver un freelance</a></li>
+            <li><a href="#">Conseils recrutement</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>2025</span> <strong class="px-1 sitename">Fluss</strong> | Conçu avec ❤ par <strong>Audes & Stécy</strong>.</p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
