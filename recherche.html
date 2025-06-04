@@ -1,58 +1,203 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Propositions de Freelances - Fluss</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Paiement - Fluss</title>
+
+  <!-- Favicon -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Custom fonts and styles -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <style>
+    .card-hover:hover { transform: translateY(-5px); transition: all 0.3s; }
+    .payment-summary { font-size: 1rem; }
+    .badge-custom { background-color: #4e73df; color: white; }
+  </style>
 </head>
-<body>
-  <div class="container mt-4">
-    <h1 class="h3 mb-4 text-gray-800">
-      <i class="fas fa-users"></i> Freelances correspondant à votre projet
-    </h1>
+<body id="page-top">
 
-    <div id="freelancersList">
-      <!-- Les freelances apparaîtront ici -->
-    </div>
-  </div>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get("name");
-    const description = urlParams.get("description");
-    const skills = urlParams.get("skills");
-    const budget = parseFloat(urlParams.get("budget"));
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="tableau_de_bord_E.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <img src="assets/img/favicon.png" alt="" style="width: 10%">
+        </div>
+        <div class="sidebar-brand-text mx-3">FLUSS <sup>Entrepreneur</sup></div>
+      </a>
+      <hr class="sidebar-divider my-0">
 
-    // Exemple : quelques freelances fictifs
-    const freelancers = [
-      { name: "Sara K.", skills: "Marketing Digital, Rédaction", rate: 4000 },
-      { name: "Youssef T.", skills: "Data Analysis, SEO", rate: 5000 },
-      { name: "Karim H.", skills: "Développement Web, UX/UI", rate: 6000 },
-    ];
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="tableau_de_bord_E.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Tableau de bord</span></a>
+      </li>
 
-    const filtered = freelancers.filter(f => 
-      f.skills.toLowerCase().includes(skills.toLowerCase()) &&
-      f.rate <= budget
-    );
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">Fonctionnalités</div>
 
-    const container = document.getElementById("freelancersList");
+      <li class="nav-item active">
+        <a class="nav-link" href="paiement_E.html">
+          <i class="fas fa-wallet mr-2"></i>
+          <span>Gestion des Paiements</span></a>
+      </li>
 
-    if (filtered.length === 0) {
-      container.innerHTML = `<div class="alert alert-warning">Aucun freelance ne correspond à vos critères pour le moment.</div>`;
-    } else {
-      filtered.forEach(f => {
-        container.innerHTML += `
-          <div class="card mb-3 shadow">
-            <div class="card-body">
-              <h5 class="card-title">${f.name}</h5>
-              <p class="card-text">Compétences : ${f.skills}</p>
-              <p class="card-text">Tarif proposé : ${f.rate} €</p>
-              <a href="messagerie_match.html?user=${encodeURIComponent(f.name)}" class="btn btn-success">Proposer une mission</a>
+      <li class="nav-item">
+        <a class="nav-link" href="messagerie_E.html">
+          <i class="fas fa-comments mr-2"></i>
+          <span>Messagerie Intégrée</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="historique_E.html">
+          <i class="fas fa-fw fa-table mr-2"></i>
+          <span>Historiques des Projets</span></a>
+      </li>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Chercher un Freelance...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Main Content -->
+        <div class="container-fluid">
+
+          <h1 class="h3 mb-4 text-gray-800">
+            <i class="fas fa-wallet"></i> Effectuer un Paiement
+          </h1>
+
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-file-invoice-dollar"></i> Détails du Paiement
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="freelanceName">Freelance</label>
+                      <input type="text" class="form-control" id="freelanceName" placeholder="Nom du Freelance">
+                    </div>
+                    <div class="form-group">
+                      <label for="paymentAmount">Montant (en DH)</label>
+                      <input type="number" class="form-control" id="paymentAmount" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                      <label for="paymentMethod">Méthode de Paiement</label>
+                      <select class="form-control" id="paymentMethod">
+                        <option>Carte Bancaire</option>
+                        <option>PayPal</option>
+                        <option>Virement Bancaire</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="paymentDescription">Description</label>
+                      <textarea class="form-control" id="paymentDescription" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-success" id="payBtn">
+                      <i class="fas fa-check mr-2"></i> Effectuer le paiement
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="fas fa-receipt"></i> Résumé
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <p class="payment-summary">
+                    <strong>Freelance :</strong> <span id="summaryFreelance">-</span><br>
+                    <strong>Montant :</strong> <span id="summaryAmount">-</span><br>
+                    <strong>Méthode :</strong> <span id="summaryMethod">-</span>
+                  </p>
+                  <hr>
+                  <button class="btn btn-primary btn-block" id="confirmPaymentBtn">
+                    Confirmer le Paiement
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        `;
-      });
+
+        </div>
+        <!-- End of Main Content -->
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer bg-gradient-primary text-white text-center py-3">
+        <div class="container">
+          © 2025 Fluss | Conçu par Audes & Stécy. Tous droits réservés.
+        </div>
+      </footer>
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/sb-admin-2.min.js"></script>
+
+  <script>
+    // Mise à jour du résumé dynamique
+    const freelanceInput = document.getElementById('freelanceName');
+    const amountInput = document.getElementById('paymentAmount');
+    const methodSelect = document.getElementById('paymentMethod');
+
+    freelanceInput.addEventListener('input', updateSummary);
+    amountInput.addEventListener('input', updateSummary);
+    methodSelect.addEventListener('change', updateSummary);
+
+    function updateSummary() {
+      document.getElementById('summaryFreelance').textContent = freelanceInput.value || '-';
+      document.getElementById('summaryAmount').textContent = amountInput.value ? amountInput.value + ' €' : '-';
+      document.getElementById('summaryMethod').textContent = methodSelect.value || '-';
     }
+
+    // Confirmation paiement (exemple)
+    document.getElementById('confirmPaymentBtn').addEventListener('click', function() {
+      alert('Paiement confirmé pour ' + (freelanceInput.value || 'Freelance') + ' de ' + (amountInput.value || '0') + ' €.');
+    });
   </script>
 </body>
 </html>
